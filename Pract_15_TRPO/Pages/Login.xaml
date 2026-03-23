@@ -1,0 +1,31 @@
+﻿<Page x:Class="Pract_15_TRPO.Pages.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Pract_15_TRPO.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="150" d:DesignWidth="200"
+      MinHeight="150"
+      MinWidth="250"
+      Background="Transparent"
+      Title="Логин" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0">Введите Пин-Код:</TextBlock>
+        <TextBox x:Name="password" Background="White" Grid.Row="1" Grid.ColumnSpan="2">1234</TextBox>
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Click="Enter">Войти</Button>
+        <Button Grid.Row="3" Grid.ColumnSpan="2" Click="EnterLikePocet">Войти как посетитель</Button>
+    </Grid>
+</Page>
