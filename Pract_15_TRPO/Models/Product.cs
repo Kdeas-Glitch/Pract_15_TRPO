@@ -41,29 +41,29 @@ public partial class Product : ObservableObject
         set => SetProperty(ref _stock, value);
     }
 
-    private int? _ratting;
-    public int? Rating
+    private int _ratting;
+    public int Rating
     {
         get => _ratting;
         set => SetProperty(ref _ratting, value);
     }
 
-    private DateTime? _createdAt = DateTime.Now;
-    public DateTime? CreatedAt
+    private DateTime _createdAt = DateTime.Now;
+    public DateTime CreatedAt
     {
         get => _createdAt;
         set => SetProperty(ref _createdAt, value);
     }
 
-    private int? _categoryId;
-    public int? CategoryId
+    private int _categoryId;
+    public int CategoryId
     {
         get => _categoryId;
         set => SetProperty(ref _categoryId, value);
     }
 
-    private int? _brandId;
-    public int? BrandId
+    private int _brandId;
+    public int BrandId
     {
         get => _brandId;
         set => SetProperty(ref _brandId, value);

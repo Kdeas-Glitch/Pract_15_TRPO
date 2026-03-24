@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\HardShop\Desktop\Projects\Pract_15_TRPO\Pract_15_TRPO\obj\Debug\net8.0-windows\
+C:\Users\st310-04\Desktop\Демин\Pract_15_TRPO\Pract_15_TRPO\obj\Debug\net8.0-windows\
 Pract_15_TRPO
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\HardShop\Desktop\Projects\Pract_15_TRPO\Pract_15_TRPO\App.xaml
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Users\st310-04\Desktop\Демин\Pract_15_TRPO\Pract_15_TRPO\App.xaml
 13-1952251751
-22-609288499
+22-863286164
 42-1171270815
-231-1708249559
+231-945263177
 MainWindow.xaml;Pages\BranchPage.xaml;Pages\BrandAddEditPage.xaml;Pages\CategoryAddEdit.xaml;Pages\CategoryPage.xaml;Pages\Login.xaml;Pages\ManagerPage.xaml;Pages\ProductAddEdit.xaml;Pages\ProductPage.xaml;Pages\TagPage.xaml;Pages\TagsProductAdd.xaml;Pages\TegAddEditPage.xaml;Pages\UserPage.xaml;
 
-False
+True
 
