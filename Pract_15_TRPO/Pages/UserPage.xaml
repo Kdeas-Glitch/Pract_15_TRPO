@@ -11,8 +11,11 @@
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
       Title="Каталог товаров"
       Background="Transparent"
-      >
+  xmlns:valid ="clr-namespace:Pract_15_TRPO.ValidationRules">
     <Page.Resources>
+        <valid:IsNumberValidMoreThan0 x:Key="IsNumberValidMoreThan0"/>
+        <valid:IsNumberValid x:Key="IsNumberValid"/>
+        <conv:ValidationConvertor x:Key="ValidationConverter"/>
         <conv:ProductTagsToStringConverter  x:Key="ProductTagsToStringConverter"/>
         <conv:ProductCountConvertor x:Key="ProductCount"/>
     </Page.Resources>
@@ -45,9 +48,25 @@
             <StackPanel>
                 <Label FontSize="16">Фильтр по цене</Label>
                 <Label>от</Label>
-                <TextBox  Text="{Binding filterPriceFrom,UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged"/>
+                <TextBox  materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged">
+                    <TextBox.Text >
+                        <Binding Path="filterPriceFrom" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <valid:IsNumberValidMoreThan0/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <Label>до</Label>
-                <TextBox Text="{Binding filterPriceTo,UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged"/>
+                <TextBox  materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged">
+                    <TextBox.Text >
+                        <Binding Path="filterPriceTo" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <valid:IsNumberValid/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
             <Label FontSize="16">Сортировка</Label>
             <ComboBox SelectionChanged="ComboBox_SelectionChanged">

@@ -9,10 +9,14 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:conv="clr-namespace:Pract_15_TRPO.Converters"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-      Title="Управление продуктами" Loaded="Load">
+      Title="Управление продуктами" Loaded="Load"
+       xmlns:valid ="clr-namespace:Pract_15_TRPO.ValidationRules">
     <Page.Resources>
+        <valid:IsNumberValidMoreThan0 x:Key="IsNumberValidMoreThan0"/>
+        <valid:IsNumberValid x:Key="IsNumberValid"/>
         <conv:ProductTagsToStringConverter  x:Key="ProductTagsToStringConverter"/>
         <conv:ProductCountConvertor x:Key="ProductCount"/>
+        
     </Page.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -41,11 +45,27 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" Cursor="">
             <StackPanel>
-                <Label FontSize="14">Фильтр по цене</Label>
+                <Label FontSize="16">Фильтр по цене</Label>
                 <Label>от</Label>
-                <TextBox Height="25"  Text="{Binding filterPriceFrom,UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged"/>
+                <TextBox  materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged">
+                    <TextBox.Text >
+                        <Binding Path="filterPriceFrom" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <valid:IsNumberValidMoreThan0/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <Label>до</Label>
-                <TextBox Height="25" Text="{Binding filterPriceTo,UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged"/>
+                <TextBox  materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged">
+                    <TextBox.Text >
+                        <Binding Path="filterPriceTo" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <valid:IsNumberValid/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
             </StackPanel>
             <Label FontSize="14">Сортировка</Label>
             <ComboBox Height="20" SelectionChanged="ComboBox_SelectionChanged">
