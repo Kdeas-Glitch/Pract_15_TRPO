@@ -10,7 +10,7 @@ using System.Windows.Controls;
 
 namespace Pract_15_TRPO.ValidationRules
 {
-    public class IsNumberValidMoreThan0 : ValidationRule
+    public class IsNumberValidMoreThanLower : ValidationRule
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
@@ -21,13 +21,11 @@ namespace Pract_15_TRPO.ValidationRules
             }
             if (Convert.ToInt32(input) > 0)
             {
-                FilterPrice.pricelow= Convert.ToInt32(input);
-                if(FilterPrice.pricelow<FilterPrice.priceHigh)
+                FilterPrice.priceHigh= Convert.ToInt32(input);
+                if(FilterPrice.priceHigh>FilterPrice.pricelow)
                 return ValidationResult.ValidResult;
                 else
-                {
-                    return new ValidationResult(false, "Необходимо что бы цена 'от' была меньше чем цена 'До'");
-                }
+                    return new ValidationResult(false, "Цена должна быть больше чем 'от'");
             }
             else
             {

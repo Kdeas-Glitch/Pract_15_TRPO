@@ -12,6 +12,7 @@
       Title="Каталог товаров"
        xmlns:valid ="clr-namespace:Pract_15_TRPO.ValidationRules">
     <Page.Resources>
+        
         <valid:IsNumberValidMoreThan0 x:Key="IsNumberValidMoreThan0"/>
         <valid:IsNumberValid x:Key="IsNumberValid"/>
         <conv:ProductTagsToStringConverter  x:Key="ProductTagsToStringConverter"/>
@@ -60,7 +61,7 @@
                     <TextBox.Text >
                         <Binding Path="filterPriceTo" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
-                                <valid:IsNumberValid/>
+                                <valid:IsNumberValidMoreThanLower/>
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>

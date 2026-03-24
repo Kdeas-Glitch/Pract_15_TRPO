@@ -17,6 +17,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Pract_15_TRPO.Service;
+using Pract_15_TRPO.ValidationRules;
 
 namespace Pract_15_TRPO.Pages
 {
@@ -109,6 +110,12 @@ namespace Pract_15_TRPO.Pages
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+            productView.Refresh();
+        }
+
+        private void TextBox_TextChanged1(object sender, TextChangedEventArgs e)
         {
             productView.Refresh();
         }

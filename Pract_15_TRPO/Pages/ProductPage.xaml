@@ -61,7 +61,7 @@
                     <TextBox.Text >
                         <Binding Path="filterPriceTo" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
-                                <valid:IsNumberValid/>
+                                <valid:IsNumberValidMoreThanLower/>
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>

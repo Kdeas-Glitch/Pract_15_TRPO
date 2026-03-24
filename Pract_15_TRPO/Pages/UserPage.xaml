@@ -48,21 +48,21 @@
             <StackPanel>
                 <Label FontSize="16">Фильтр по цене</Label>
                 <Label>от</Label>
-                <TextBox  materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged">
+                <TextBox x:Name="Pricefrom" materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged">
                     <TextBox.Text >
                         <Binding Path="filterPriceFrom" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
-                                <valid:IsNumberValidMoreThan0/>
+                                <valid:IsNumberValidMoreThan0 ValidatesOnTargetUpdated="True"/>
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
                 </TextBox>
                 <Label>до</Label>
-                <TextBox  materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged">
+                <TextBox x:Name="PriceTo" materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged">
                     <TextBox.Text >
                         <Binding Path="filterPriceTo" UpdateSourceTrigger="PropertyChanged">
                             <Binding.ValidationRules>
-                                <valid:IsNumberValid/>
+                                <valid:IsNumberValidMoreThanLower ValidatesOnTargetUpdated="True"/>
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>

@@ -57,6 +57,17 @@ namespace Pract_15_TRPO.Pages
         {
             try
             {
+                /*if (!string.IsNullOrEmpty(filterPriceFrom) && !string.IsNullOrEmpty(filterPriceTo))
+                {
+                    if(Convert.ToInt32(filterPriceFrom) > Convert.ToInt32(filterPriceTo))
+                    {
+                        string temp = filterPriceFrom;
+                        filterPriceFrom = filterPriceTo;
+                        filterPriceTo = filterPriceFrom;
+
+                    }
+
+                }*/
                 if (obj is not Product)
                     return false;
                 var form = (Product)obj;
