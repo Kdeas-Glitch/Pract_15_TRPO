@@ -24,7 +24,7 @@
             
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0">Введите Пин-Код:</TextBlock>
-        <TextBox x:Name="password" Background="White" Grid.Row="1" Grid.ColumnSpan="2">1234</TextBox>
+        <TextBox x:Name="password" Background="White" Grid.Row="1" Grid.ColumnSpan="2"></TextBox>
         <Button Grid.Row="2" Grid.ColumnSpan="2" Click="Enter">Войти</Button>
         <Button Grid.Row="3" Grid.ColumnSpan="2" Click="EnterLikePocet">Войти как посетитель</Button>
     </Grid>
