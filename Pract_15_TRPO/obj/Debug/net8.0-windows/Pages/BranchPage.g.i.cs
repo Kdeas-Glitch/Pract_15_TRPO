@@ -65,7 +65,7 @@ namespace Pract_15_TRPO.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Pract_15_TRPO;V1.0.0.0;component/pages/branchpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Pract_15_TRPO;component/pages/branchpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\BranchPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -26,7 +26,8 @@ public partial class DeminPract15Context : DbContext
     public  DbSet<ProductTag> ProductTags { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server = localhost; Database = demin_pract_15_; Trusted_Connection = True; TrustServerCertificate = True; ");
+
+    =>optionsBuilder.UseSqlServer("Server=sql.ects;Database=demin_pract_15_;User Id = student_04; Password = student_04;TrustServerCertificate = True; ");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

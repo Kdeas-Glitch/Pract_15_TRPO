@@ -18,8 +18,10 @@ namespace Pract_15_TRPO.Converters
             if (value is ICollection<ProductTag> productTags && productTags.Any())
             {
 
-                var tags = productTags.Select(pt => ts.Tags.FirstOrDefault(t => t.Id == pt.TagId)?.Name ?? "");
-                return string.Join(" ", tags.Where(t => !string.IsNullOrEmpty(t)));
+                var tags = productTags.Select(pt => ts.Tags.FirstOrDefault(t => t.Id == pt.TagId)?.Name ?? "")
+                    .Where(t=>!string.IsNullOrEmpty(t));
+                string result = tags.Any() ? "#" + string.Join(" #", tags):"";
+                return result;
 
             }
             return string.Empty;

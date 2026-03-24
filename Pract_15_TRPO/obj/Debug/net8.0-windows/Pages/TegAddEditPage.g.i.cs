@@ -63,7 +63,7 @@ namespace Pract_15_TRPO.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Pract_15_TRPO;V1.0.0.0;component/pages/tegaddeditpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Pract_15_TRPO;component/pages/tegaddeditpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\TegAddEditPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
