@@ -74,36 +74,44 @@
                                 </Style>
                             </Border.Style>
                             <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <StackPanel Grid.Column="0">
+                                <StackPanel Grid.RowSpan="6" Grid.Column="0">
                                     <TextBlock Text="{Binding Name}"/>
                                     <TextBlock>
-                     <Run Text="⭐"/>
-                     <Run Text="{Binding Rating}"/>
+   <Run Text="⭐"/>
+   <Run Text="{Binding Rating}"/>
                                     </TextBlock>
                                     <TextBlock>
-                            <Run Text="{Binding Category.Name}"/>
+          <Run Text="{Binding Category.Name}"/>
                                     </TextBlock>
                                     <TextBlock>
-                            <Run Text="{Binding Description}"/>
+          <Run Text="{Binding Description}"/>
                                     </TextBlock>
                                     <TextBlock Grid.Column="2">
-                            <Run Text="{Binding ProductTags,Converter={StaticResource ProductTagsToStringConverter}}"/>
+          <Run Text="{Binding ProductTags,Converter={StaticResource ProductTagsToStringConverter}}"/>
                                     </TextBlock>
                                 </StackPanel>
-                                <StackPanel Grid.Column="1">
+                                <StackPanel Grid.Column="1" Grid.Row="0">
                                     <TextBlock HorizontalAlignment="Right">
-                     <Run Text="Цена: "/>
-                     <Run Text="{Binding Price, StringFormat={}{0:C}}"/>
+   <Run Text="Цена: "/>
+   <Run Text="{Binding Price, StringFormat={}{0:C}}"/>
                                     </TextBlock>
                                 </StackPanel>
-                                <StackPanel Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                                    <TextBlock HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                     <Run Text="Остаток "/>
-                     <Run Text="{Binding Stock}"/>
+                                <StackPanel Grid.Column="2" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Right">
+                                    <TextBlock HorizontalAlignment="Right">
+   <Run Text="Остаток "/>
+   <Run Text="{Binding Stock}"/>
                                     </TextBlock>
                                 </StackPanel>
                             </Grid>
