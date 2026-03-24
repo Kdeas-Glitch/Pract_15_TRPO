@@ -79,7 +79,7 @@
                                 <StackPanel Grid.Column="0">
                                     <TextBlock Text="{Binding Name}"/>
                                     <TextBlock>
-                             <Run Text="Рейтинг ⭐"/>
+                             <Run Text="⭐"/>
                              <Run Text="{Binding Rating}"/>
                                     </TextBlock>
                                     <TextBlock>
