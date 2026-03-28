@@ -27,8 +27,8 @@ public partial class Product : ObservableObject
         get => _description;
         set => SetProperty(ref _description, value);
     }
-    private int _price;
-    public int Price
+    private double _price;
+    public double Price
     {
         get => _price;
         set => SetProperty(ref _price, value);
@@ -41,8 +41,8 @@ public partial class Product : ObservableObject
         set => SetProperty(ref _stock, value);
     }
 
-    private int _ratting;
-    public int Rating
+    private double _ratting;
+    public double Rating
     {
         get => _ratting;
         set => SetProperty(ref _ratting, value);

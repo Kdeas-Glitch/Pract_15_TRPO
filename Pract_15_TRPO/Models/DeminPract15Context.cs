@@ -27,8 +27,8 @@ public partial class DeminPract15Context : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 
-    =>optionsBuilder.UseSqlServer("Server=sql.ects;Database=demin_pract_15_;User Id = student_04; Password = student_04;TrustServerCertificate = True; ");
-
+    =>optionsBuilder.UseSqlServer("Server=sql.ects;Database=demin_prat_15;User Id = student_04; Password = student_04;TrustServerCertificate = True; ");
+    //Scaffold-DbContext 'Server=sql.ects;Database=demin_prat_15;User Id = student_04; Password = student_04;TrustServerCertificate = True; ' Microsoft.EntityFrameworkCore.SqlServer -o Models
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 

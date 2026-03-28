@@ -17,7 +17,7 @@ namespace Pract_15_TRPO.ValidationRules
             {
                 return new ValidationResult(false, "Необходимо ввести число");
             }
-            if(Convert.ToInt32(input)>0&& Convert.ToInt32(input) <= 5)
+            if(Convert.ToDouble(input)>0&& Convert.ToDouble(input) <= 5)
             return ValidationResult.ValidResult;
             else
             {

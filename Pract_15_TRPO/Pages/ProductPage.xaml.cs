@@ -78,9 +78,9 @@ namespace Pract_15_TRPO.Pages
                     return false;
                 if (searchQueryCategory != null && !form.Category.Name.Contains(searchQueryCategory, StringComparison.CurrentCultureIgnoreCase))
                     return false;
-                if (!string.IsNullOrEmpty(filterPriceFrom) && Convert.ToInt32(filterPriceFrom) > form.Price)
+                if (!string.IsNullOrEmpty(filterPriceFrom) && Convert.ToDouble(filterPriceFrom) > form.Price)
                     return false;
-                if (!string.IsNullOrEmpty(filterPriceTo) && Convert.ToInt32(filterPriceTo) < form.Price)
+                if (!string.IsNullOrEmpty(filterPriceTo) && Convert.ToDouble(filterPriceTo) < form.Price)
                     return false;
                 return true;
             }
