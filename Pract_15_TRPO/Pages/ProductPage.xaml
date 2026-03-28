@@ -46,7 +46,16 @@
         <StackPanel Grid.Row="1" Grid.Column="0" Cursor="">
             <StackPanel>
                 <Label FontSize="16">Фильтр по цене</Label>
-                <Label>от</Label>
+                <TextBox x:Name="Pricefilter" materialDesign:HintAssist.Hint="Введите цену 'от' и 'до' " TextChanged="TextBox_TextChanged">
+                    <TextBox.Text >
+                        <Binding Path="filterPrice" UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <valid:IsNumberValidMoreThanLower/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
+                <!--<Label>от</Label>
                 <TextBox  materialDesign:HintAssist.Hint="Введите цену" TextChanged="TextBox_TextChanged">
                     <TextBox.Text >
                         <Binding Path="filterPriceFrom" UpdateSourceTrigger="PropertyChanged">
@@ -65,7 +74,7 @@
                             </Binding.ValidationRules>
                         </Binding>
                     </TextBox.Text>
-                </TextBox>
+                </TextBox>-->
             </StackPanel>
             <Label FontSize="14">Сортировка</Label>
             <ComboBox Height="20" SelectionChanged="ComboBox_SelectionChanged">

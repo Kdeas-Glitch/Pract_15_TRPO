@@ -14,22 +14,40 @@ namespace Pract_15_TRPO.ValidationRules
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            var input = (value ?? "").ToString().Trim();
-            if (!float.TryParse(input, out float floatValue))
+            try
             {
-                return new ValidationResult(false, "Необходимо ввести число");
-            }
-            if (Convert.ToInt32(input) > 0)
-            {
-                FilterPrice.priceHigh= Convert.ToInt32(input);
-                if(FilterPrice.priceHigh>FilterPrice.pricelow)
-                return ValidationResult.ValidResult;
+                var input = (value ?? "").ToString().Trim();
+                if (input != "")
+                {
+                    string[] strings = input.Split(' ');
+                    if (strings.Length < 2)
+                        return new ValidationResult(false, "Необходимо ввести два числа");
+
+                    if (!float.TryParse(strings[0], out float floatValue) || !float.TryParse(strings[1], out float floatValue1))
+                    {
+                        return new ValidationResult(false, "Необходимо ввести числа");
+                    }
+
+                    if (Convert.ToDouble(strings[0]) > 0 && Convert.ToDouble(strings[1]) > 0)
+                    {
+                        if (Convert.ToDouble(strings[0]) < Convert.ToDouble(strings[1]))
+                            return ValidationResult.ValidResult;
+                        else
+                            return new ValidationResult(false, "Цена 'от' должна быть больше чем 'до'");
+                    }
+                    else
+                    {
+                        return new ValidationResult(false, "Необходимо ввести числа Больше 0");
+                    }
+                }
                 else
-                    return new ValidationResult(false, "Цена должна быть больше чем 'от'");
+                {
+                    return ValidationResult.ValidResult;
+                }
             }
-            else
+            catch
             {
-                return new ValidationResult(false, "Необходимо ввести число Больше 0");
+                return new ValidationResult(false, "Необходимо ввести числа");
             }
         }
     }

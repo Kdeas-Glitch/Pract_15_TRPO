@@ -34,6 +34,7 @@ namespace Pract_15_TRPO.Pages
         public string searchQueryCategory { get; set; } = null!;
         public string filterPriceFrom { get; set; } = null!;
         public string filterPriceTo { get; set; } = null!;
+        public string filterPrice { get; set; } = "";
         public ManagerPage()
         {
             Window window = Application.Current.MainWindow;
@@ -68,6 +69,17 @@ namespace Pract_15_TRPO.Pages
                     }
 
                 }*/
+
+                if (filterPrice.Split(' ').Length > 1)
+                {
+                    filterPriceFrom = filterPrice.Split(' ')[0];
+                    filterPriceTo = filterPrice.Split(' ')[1];
+                }
+                else
+                {
+                    filterPriceFrom = "";
+                    filterPriceTo = "";
+                }
                 if (obj is not Product)
                     return false;
                 var form = (Product)obj;
