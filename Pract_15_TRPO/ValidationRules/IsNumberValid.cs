@@ -12,12 +12,16 @@ namespace Pract_15_TRPO.ValidationRules
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            var input = (value ?? "").ToString().Trim();
-            if (!float.TryParse(input, out float floatValue))
+            try
             {
-                return new ValidationResult(false, "Необходимо ввести число");
+                var input = (value ?? "").ToString().Trim();
+                Convert.ToDouble(input.Replace('.',','));
+                return ValidationResult.ValidResult;
             }
-            return ValidationResult.ValidResult;
+            catch
+            {
+                return new ValidationResult(false, $"Необходимо ввести число 1");
+            }
         }
     }
 }

@@ -13,7 +13,8 @@ namespace Pract_15_TRPO.ValidationRules
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             var input = (value ?? "").ToString().Trim();
-            if (!float.TryParse(input, out float floatValue))
+            input = input.Replace('.', ',');
+            if (!double.TryParse(input, out double floatValue))
             {
                 return new ValidationResult(false, "Необходимо ввести число");
             }
