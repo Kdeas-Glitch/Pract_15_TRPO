@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Azure;
+
+using Microsoft.EntityFrameworkCore;
 using Pract_15_TRPO.Models;
 using System;
 using System.Collections.Generic;
@@ -6,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Pract_15_TRPO.Service
 {
@@ -42,13 +45,36 @@ namespace Pract_15_TRPO.Service
                 Brands.Add(prod);
             }
         }
-
+        ProductService ps = new();
         public void Remove(Brand brand)
         {
-            _db.Remove<Brand>(brand);
-            if (Commit() > 0)
+            if (brand.Products != null && brand.Products.Any())
+            {
+                for(int i = 0; i < brand.Products.Count; i++)
+                {
+                    ps.Remove(brand.Products[i]);
+                }
+            }
+            _db.Brands.Remove(brand);
+
+            int rowsAffected = Commit();
+
+            if (rowsAffected > 0)
+            {
+
                 if (Brands.Contains(brand))
                     Brands.Remove(brand);
+
+            }
+            else
+            {
+                MessageBox.Show("Не удалось удалить тег.", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            //_db.Remove<Brand>(brand);
+            //if (Commit() > 0)
+            //    if (Brands.Contains(brand))
+            //        Brands.Remove(brand);
         }
     }
 }

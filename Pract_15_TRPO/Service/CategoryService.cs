@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Pract_15_TRPO.Service
 {
@@ -41,13 +42,37 @@ namespace Pract_15_TRPO.Service
                 Categories.Add(prod);
             }
         }
-
+        ProductService ps = new();
         public void Remove(Category categor)
         {
-            _db.Remove<Category>(categor);
+           /* _db.Remove<Category>(categor);
             if (Commit() > 0)
                 if (Categories.Contains(categor))
+                    Categories.Remove(categor);*/
+
+            if (categor.Products != null && categor.Products.Any())
+            {
+                for (int i = 0; i < categor.Products.Count; i++)
+                {
+                    ps.Remove(categor.Products[i]);
+                }
+            }
+            _db.Categories.Remove(categor);
+
+            int rowsAffected = Commit();
+
+            if (rowsAffected > 0)
+            {
+
+                if (Categories.Contains(categor))
                     Categories.Remove(categor);
+
+            }
+            else
+            {
+                MessageBox.Show("Не удалось удалить тег.", "Ошибка",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

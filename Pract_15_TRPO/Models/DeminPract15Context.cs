@@ -32,9 +32,9 @@ public partial class DeminPract15Context : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
 
-        modelBuilder.Entity<Product>()
-            .HasOne(d => d.Brand)
-            .WithMany(p => p.Products)
+        modelBuilder.Entity<Brand>()
+            .HasMany(d => d.Products)
+            .WithOne(p => p.Brand)
             .HasForeignKey(d => d.BrandId);
 
         modelBuilder.Entity<Product>()
