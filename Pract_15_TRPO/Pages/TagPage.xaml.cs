@@ -1,4 +1,6 @@
-﻿using Pract_15_TRPO.Models;
+﻿using Azure;
+
+using Pract_15_TRPO.Models;
 using Pract_15_TRPO.Service;
 using System;
 using System.Collections.Generic;
@@ -89,11 +91,14 @@ namespace Pract_15_TRPO.Pages
         {
             if (choseedpr != null)
             {
-                MessageBoxResult res = MessageBox.Show("Вы действительно хотите удалить этот Тэг?",
-                            "Подтверждение удаления",
-                            MessageBoxButton.YesNo,
-                            MessageBoxImage.Question);
-                if (res == MessageBoxResult.Yes)
+                var result = MessageBox.Show(
+                $"Тег {choseedpr.Name} используется в {choseedpr.ProductTags.Count} товаре." +
+                    "Удалить тег? Все связи с товарами будут также удалены.",
+                    "Подтверждение удаления",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning);
+
+                if (result == MessageBoxResult.Yes)
                 {
                     ts.Remove(choseedpr);
                     tags.Remove(choseedpr);

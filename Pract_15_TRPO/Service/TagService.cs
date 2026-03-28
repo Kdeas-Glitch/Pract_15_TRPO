@@ -52,15 +52,6 @@ namespace Pract_15_TRPO.Service
 
             if (tag.ProductTags != null && tag.ProductTags.Any())
             {
-                var result = MessageBox.Show(
-                    $"Тег {tag.Name} используется в {tag.ProductTags.Count} товаре." +
-                    "Удалить тег? Все связи с товарами будут также удалены.",
-                    "Подтверждение удаления",
-                    MessageBoxButton.YesNo,
-                    MessageBoxImage.Warning);
-
-                if (result != MessageBoxResult.Yes)
-                    return;
 
 
                 _db.ProductTags.RemoveRange(tag.ProductTags);
