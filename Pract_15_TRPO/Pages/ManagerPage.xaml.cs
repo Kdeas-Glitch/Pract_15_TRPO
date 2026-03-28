@@ -154,5 +154,20 @@ namespace Pract_15_TRPO.Pages
         {
             NavigationService.Navigate(new BranchPage());
         }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            pc.GetAll();
+            products.Clear();
+            foreach (var form in pc.Products)
+            {
+                products.Add(form);
+            }
+        }
     }
 }

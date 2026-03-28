@@ -116,6 +116,11 @@ namespace Pract_15_TRPO.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             ts.GetAll();
+            tags.Clear();
+            foreach (var form in ts.Tags)
+            {
+                tags.Add(form);
+            }
             LoadList();
         }
     }

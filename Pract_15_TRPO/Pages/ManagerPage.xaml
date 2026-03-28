@@ -10,7 +10,7 @@
         xmlns:conv="clr-namespace:Pract_15_TRPO.Converters"
       DataContext="{Binding RelativeSource={RelativeSource Self}}"
       Title="Каталог товаров"
-       xmlns:valid ="clr-namespace:Pract_15_TRPO.ValidationRules">
+       xmlns:valid ="clr-namespace:Pract_15_TRPO.ValidationRules" Loaded="Page_Loaded">
     <Page.Resources>
         
         <valid:IsNumberValidMoreThan0 x:Key="IsNumberValidMoreThan0"/>
@@ -18,7 +18,7 @@
         <conv:ProductTagsToStringConverter  x:Key="ProductTagsToStringConverter"/>
         <conv:ProductCountConvertor x:Key="ProductCount"/>
     </Page.Resources>
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>

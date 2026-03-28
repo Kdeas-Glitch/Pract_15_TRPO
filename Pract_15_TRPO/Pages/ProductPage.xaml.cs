@@ -162,6 +162,11 @@ namespace Pract_15_TRPO.Pages
         private void Load(object sender, RoutedEventArgs e)
         {
             pc.GetAll();
+            products.Clear();
+            foreach (var form in pc.Products)
+            {
+                products.Add(form);
+            }
             LoadList();
         }
 
