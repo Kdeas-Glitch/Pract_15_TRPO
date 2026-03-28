@@ -59,7 +59,7 @@
             <TextBox.Text >
                 <Binding Path="Price" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
-                        <valid:IsNumberValid ValidatesOnTargetUpdated="True"/>
+                        <valid:IsNumberValidMore ValidatesOnTargetUpdated="True"/>
                         <valid:RequaredRule ValidatesOnTargetUpdated="True"/>
                     </Binding.ValidationRules>
                 </Binding>
@@ -70,7 +70,7 @@
             <TextBox.Text >
                 <Binding Path="Stock" UpdateSourceTrigger="PropertyChanged">
                     <Binding.ValidationRules>
-                        <valid:IsNumberValid ValidatesOnTargetUpdated="True"/>
+                        <valid:IsNumberValidMoreZero ValidatesOnTargetUpdated="True"/>
                         <valid:RequaredRule ValidatesOnTargetUpdated="True"/>
                     </Binding.ValidationRules>
                 </Binding>
