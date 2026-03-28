@@ -48,13 +48,14 @@ namespace Pract_15_TRPO.Service
         ProductService ps = new();
         public void Remove(Brand brand)
         {
-            if (brand.Products != null && brand.Products.Any())
+            if (brand.Products.Count>0&& brand.Products.Any())
             {
-                for(int i = 0; i < brand.Products.Count; i++)
+                brand.Products.ToList().ForEach(p => ps.Remove(p));
+/*                foreach(var item in brand.Products)
                 {
-                    ps.Remove(brand.Products[i]);
+                    ps.Remove(item);
                 }
-            }
+*/            }
             _db.Brands.Remove(brand);
 
             int rowsAffected = Commit();

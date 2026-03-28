@@ -52,10 +52,7 @@ namespace Pract_15_TRPO.Service
 
             if (categor.Products != null && categor.Products.Any())
             {
-                for (int i = 0; i < categor.Products.Count; i++)
-                {
-                    ps.Remove(categor.Products[i]);
-                }
+                categor.Products.ToList().ForEach(p => ps.Remove(p));
             }
             _db.Categories.Remove(categor);
 
