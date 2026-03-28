@@ -27,7 +27,7 @@ namespace Pract_15_TRPO.Pages
         public ObservableCollection<Tag> Tags { get; set; }
         private TagService _tagService=new TagService();
         public Tag? SelectedTag { get; set; } = new();
-        public ProductTag? SelectedProdTag { get; set; } = new();
+        public ProductTag? SelectedProdTag { get; set; } = null;
         public ProductTag ProductTag { get; set; } = new();
         private ProductTagService _productTagService=new ProductTagService();
         public ObservableCollection<ProductTag> ProductTags { get; set; }
